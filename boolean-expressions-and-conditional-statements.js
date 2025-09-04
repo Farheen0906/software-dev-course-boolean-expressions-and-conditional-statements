@@ -26,21 +26,54 @@ Paste the following code into your editor:
 
 const readline = require('readline-sync');
 
-const hasTorch = true;
-const hasMap = false;
 
-console.log("You see two paths: one leads to the mountains, the other to the village.");
-const choice = readline.question("Do you go to the 'mountains' or the 'village'?");
+console.log("Welcome to the adventure game!");
+console.log("You wake up in a dark forest and have two options: one leads to the mountains, the other to the village.");
+//ask the player to select two tools
+console.log("Pick the tools you need in the journey");
+let hasTorch = readline.question("Do you want a torch with you? (yes/no): ").toLowerCase() === "yes";
+let hasSword = readline.question("Do you want a sword with you? (yes/no): ").toLowerCase() === "yes";
+let hasMap = readline.question("Do you want a map with you? (yes/no): ").toLowerCase() === "yes";
+//let hasCompass = readline.question("Do you want a compass with you? (yes/no): ").toLowerCase() === "yes";
 
-if (choice === "mountains" && hasTorch) {
-  console.log("You safely navigate through the dark mountains.");
-} else if (choice === "mountains" && !hasTorch) {
+// path choice
+const choice = readline.question("\nDo you go to the 'mountains' or the 'village'? ").toLowerCase();
+// Handle mountains path
+if (choice === "mountains"){
+ console.log("\nYou start heading towards the mountains. The path is steep and dangerous.Be careful!");
+  if (hasTorch && hasMap) {
+    console.log("With your torch and map, you find a safe path and start climbing !");
+    const mountainChoice = readline.question("You encounter a wild beast! Do you 'fight' or 'run'? ");
+    if (mountainChoice === "fight" && hasSword) {
+          console.log("With your sword, you bravely defeat the beast and continue your journey!");
+  } else if (!hasSword) {
+    console.log("Try fighting the beast with whatever you can and try escaping");
+  } else 
+    console.log("Find a safe place for shelter,to survive the night!");
+  }
+} else if (choice === "village" && !hasTorch && !hasMap) {
   console.log("It's too dark to proceed. You decide to turn back.");
-} else if (choice === "village" || hasMap) {
-  console.log("You find your way to the village.");
+} else if (choice === "village" && hasTorch && hasMap)  {
+  console.log("You will find your way to the village.");
 } else {
   console.log("You get lost and wander aimlessly.");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 
 
@@ -48,5 +81,26 @@ Add Customization and expand the game:
   - Add more choices and scenarios.
   - Include additional items (e.g., a sword, a compass).
   - Use nested conditionals and logical operators to create complex outcomes.
+
+
+const mountainChoice = readline.question("You encounter a wild beast! Do you 'fight' or 'run'? ");
+    if (mountainChoice === "fight" && hasSword) {
+      console.log("With your sword, you bravely defeat the beast and continue your journey!");
+    } else if (mountainChoice === "fight" && !hasSword) {
+      console.log("You try to fight, but without a weapon, the beast defeats you.");
+    } else {
+      console.log("You run back to safety, but you lose valuable time.");
+    }
+} else if (choice === "mountains" && !hasTorch) {
+  console.log("It's too dark to proceed. You decide to turn back.");
+} else if (choice === "village" && (hasCompass ||  hasMap) ) {
+  console.log("You will find your way to the village.");
+} else {
+  console.log("You get lost and wander aimlessly.");
+}
+
+
+
+
 
 */
