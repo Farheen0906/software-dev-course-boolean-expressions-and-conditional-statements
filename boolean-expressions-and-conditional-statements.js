@@ -60,47 +60,10 @@ if (choice === "mountains"){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* 
 
 Add Customization and expand the game:
   - Add more choices and scenarios.
   - Include additional items (e.g., a sword, a compass).
   - Use nested conditionals and logical operators to create complex outcomes.
-
-
-const mountainChoice = readline.question("You encounter a wild beast! Do you 'fight' or 'run'? ");
-    if (mountainChoice === "fight" && hasSword) {
-      console.log("With your sword, you bravely defeat the beast and continue your journey!");
-    } else if (mountainChoice === "fight" && !hasSword) {
-      console.log("You try to fight, but without a weapon, the beast defeats you.");
-    } else {
-      console.log("You run back to safety, but you lose valuable time.");
-    }
-} else if (choice === "mountains" && !hasTorch) {
-  console.log("It's too dark to proceed. You decide to turn back.");
-} else if (choice === "village" && (hasCompass ||  hasMap) ) {
-  console.log("You will find your way to the village.");
-} else {
-  console.log("You get lost and wander aimlessly.");
-}
-
-
-
-
-
 */
